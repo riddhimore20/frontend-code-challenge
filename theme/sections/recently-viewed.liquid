@@ -1,0 +1,37 @@
+<!-- Schema for Recently Viewed Section -->
+
+{% schema %}
+{
+  
+  "name": "Recently Viewed Products",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Recently Viewed" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Your recent items" },
+    { "type": "number", "id": "max_products", "label": "Max Visible Products", "default": 5}
+  ],
+  "presets": [{ "name": "Recently Viewed Products" }]
+}
+{% endschema %}
+
+
+
+<div class="page-width">
+  <div class="recently-viewed-section">
+    <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.subtitle }}</p>
+    <!-- Slider Element -->
+    <recently-viewed-carousel
+      data-max="{{ section.settings.max_products }}"
+      data-store-url="{{ shop.url }}"
+    ></recently-viewed-carousel>
+  </div>
+</div>
+
+<script src="{{ 'recently-viewed.js' | asset_url }}" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+
+
+
+
+
